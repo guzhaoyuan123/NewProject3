@@ -78,6 +78,7 @@ public class AddStudentActivity extends AppCompatActivity implements View.OnClic
         student.setAge(etAge.getText().toString());
         studentdaoimpl.insert(student);
 
+        //将结果返回
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putSerializable("2", student);
