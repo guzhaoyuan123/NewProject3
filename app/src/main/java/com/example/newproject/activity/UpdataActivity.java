@@ -22,7 +22,7 @@ public class UpdataActivity extends AppCompatActivity implements View.OnClickLis
     private Button btnQue,btnExit;
     private Student student;
     private StudentDaoImpl studentdaoimpl;
-    private String flag1;
+    private int flag1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +52,7 @@ public class UpdataActivity extends AppCompatActivity implements View.OnClickLis
         if (bundle != null) {
             student = (Student) bundle.getSerializable("updata");
             if (student != null) {
+                flag1=student.getId();
                 etName.setText(student.getName());
 //                spCode.setTextAlignment(Integer.parseInt(student.getClassmate()));
                 etAge.setText(String.valueOf(student.getAge()));
@@ -89,6 +90,7 @@ public class UpdataActivity extends AppCompatActivity implements View.OnClickLis
         if (student == null) {
             student = new Student();
         }
+        student.setId(flag1);
         student.setName(etName.getText().toString());
         student.setClassmate(String.valueOf(spCode.getSelectedItem()));
         student.setAge(etAge.getText().toString());

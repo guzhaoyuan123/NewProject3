@@ -68,11 +68,12 @@ public class StudentDaoImpl implements StudentDao {
         // 1. 获取db对象
         db = dbHelper.getWritableDatabase();
         // 2. 执行sql
-        String sql = "update t_student_info set student_name=? , student_age=? where student_name=?";
+        String sql = "update t_student_info set student_name=? , student_classmate=? ,student_age=? where id=?";
         db.execSQL(sql, new Object[]{
                 student.getName(),
+                student.getClassmate(),
                 student.getAge(),
-                student.getName()
+                student.getId()
         });
     }
 
