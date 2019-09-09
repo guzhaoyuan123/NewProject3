@@ -45,7 +45,6 @@ public class StudentListActivity extends AppCompatActivity implements View.OnCli
 
         initData();
 
-
         studentAdapter = new StudentAdapter(students);
         lvStudent.setAdapter(studentAdapter);
 
@@ -69,20 +68,16 @@ public class StudentListActivity extends AppCompatActivity implements View.OnCli
                 startActivityForResult(intent, ADD_REQUEST);
                 break;
             case R.id.btn_update:
-                if(selectedPos != 100){
+                if(selectedStudent != null){
                     Intent intent1 = new Intent(StudentListActivity.this,UpdataActivity.class);
-
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("updata", selectedStudent);
                     intent1.putExtras(bundle);
-
                     startActivityForResult(intent1, MODIFY_REQUEST);
-
-
                 }
                 break;
             case R.id.btn_delete:
-                if (selectedPos != 1000){
+                if (selectedStudent != null){
                     // 从SQLite数据库的表中删除
                     studentdaoimpl.delete(selectedStudent.getName());
                     // 移除rooms中的数据，并刷新adapter
@@ -94,8 +89,10 @@ public class StudentListActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
+
     private void initData() {
         // 从SQLite数据库获取宿舍列表
+
         studentdaoimpl = new StudentDaoImpl(this);
         students = studentdaoimpl.selectAllStudents();
 
@@ -104,6 +101,7 @@ public class StudentListActivity extends AppCompatActivity implements View.OnCli
             students = new ArrayList<>();
         }
     }
+
 
     // 接收addActivity的返回的添加或修改后的student对象，更新students，刷新列表
     @Override

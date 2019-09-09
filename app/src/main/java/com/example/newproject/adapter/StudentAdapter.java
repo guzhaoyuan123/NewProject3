@@ -15,7 +15,7 @@ import java.util.List;
 
 public class StudentAdapter extends BaseAdapter {
 
-    private int selectItem=-1;
+    private int selectItem=-2;
     private List<Student> students;
 
     public StudentAdapter(List<Student> students) {
@@ -39,27 +39,18 @@ public class StudentAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder holder;
-        if(view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_student, viewGroup, false);
-            holder = new ViewHolder();
 
-            holder.studentname = view.findViewById(R.id.tv_name);
-            holder.studentclassmate = view.findViewById(R.id.tv_classmate);
-            holder.studentage = view.findViewById(R.id.tv_age);
-
-            view.setTag(holder);
-        } else {
-            holder = (ViewHolder) view.getTag();
-        }
 
         Student student = students.get(i);
+            TextView studentname = view.findViewById(R.id.tv_name);
+            TextView studentclassmate = view.findViewById(R.id.tv_classmate);
+            TextView studentage = view.findViewById(R.id.tv_age);
 
-        holder.studentname.setText(student.getName());
-        holder.studentclassmate.setText(student.getClassmate());
-        holder.studentage.setText(student.getAge());
 
-
+        studentname.setText(student.getName());
+        studentclassmate.setText(student.getClassmate());
+        studentage.setText(student.getAge());
 
 
         //如果位置相同则设置背景为黄色
@@ -74,10 +65,5 @@ public class StudentAdapter extends BaseAdapter {
     }
     public void setSelectItem(int selectItem) {
         this.selectItem = selectItem;
-    }
-    static class ViewHolder {
-        TextView studentname;
-        TextView studentclassmate;
-        TextView studentage;
     }
 }

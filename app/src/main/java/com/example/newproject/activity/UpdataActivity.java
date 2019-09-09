@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import com.example.newproject.R;
 import com.example.newproject.dao.StudentDaoImpl;
@@ -52,6 +53,12 @@ public class UpdataActivity extends AppCompatActivity implements View.OnClickLis
         if (bundle != null) {
             student = (Student) bundle.getSerializable("updata");
             if (student != null) {
+                SpinnerAdapter spinnerAdapter  = spCode.getAdapter();
+                for (int i=0;i<spinnerAdapter.getCount();i++){
+                    if (spinnerAdapter.getItem(i).toString().equals(student.getClassmate())){
+                        spCode.setSelection(i);
+                    }
+                }
                 flag1=student.getId();
                 etName.setText(student.getName());
 //                spCode.setTextAlignment(Integer.parseInt(student.getClassmate()));

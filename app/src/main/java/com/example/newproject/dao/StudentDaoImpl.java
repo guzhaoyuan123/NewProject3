@@ -41,7 +41,6 @@ public class StudentDaoImpl implements StudentDao {
                 student.setName(cursor.getString(cursor.getColumnIndex("student_name")));
                 student.setClassmate(cursor.getString(cursor.getColumnIndex("student_classmate")));
                 student.setAge(cursor.getString(cursor.getColumnIndex("student_age")));
-
                 students.add(student);
             }
             // 4. 关闭cursor
@@ -51,6 +50,7 @@ public class StudentDaoImpl implements StudentDao {
         // 5. 返回结果
         return students;
     }
+
 
     @Override
     public void insert(Student student) {
@@ -76,6 +76,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.getAge(),
                 student.getId()
         });
+        db.close();
     }
 
     @Override
