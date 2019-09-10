@@ -85,7 +85,6 @@ public class UpdataActivity extends AppCompatActivity implements View.OnClickLis
         spCode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
             }
 
             @Override

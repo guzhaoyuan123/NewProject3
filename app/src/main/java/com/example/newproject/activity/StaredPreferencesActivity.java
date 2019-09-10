@@ -33,7 +33,6 @@ public class StaredPreferencesActivity extends AppCompatActivity implements View
         cxRember = findViewById(R.id.cx_rember);
 
         btnLogin.setOnClickListener(this);
-
         //
         mSharedPreferences = getSharedPreferences("data",MODE_PRIVATE);
         mEditor = mSharedPreferences.edit();
