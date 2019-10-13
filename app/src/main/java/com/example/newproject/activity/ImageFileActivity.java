@@ -38,6 +38,8 @@ public class ImageFileActivity extends AppCompatActivity implements View.OnClick
         btnWrite = findViewById(R.id.im_write);
         btnRead = findViewById(R.id.im_read);
 
+
+
         btnWrite.setOnClickListener(this);
         btnRead.setOnClickListener(this);
     }

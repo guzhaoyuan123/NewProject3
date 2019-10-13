@@ -10,7 +10,7 @@ import com.example.newproject.entity.Student;
 public class DBHelper extends SQLiteOpenHelper {
 
     public DBHelper(Context context) {
-        super(context, "demo.db", null, 2);
+        super(context, "demo.db-wal", null, 2);
     }
     // 当app发现没有demo.db时会自动调用onCreate创建数据库表
 

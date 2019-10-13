@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.newproject">
 
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -12,21 +11,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.AddStudentActivity"></activity>
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".activity.ValueAnimationActivity"></activity>
+        <activity android:name=".activity.FrameActivity" />
+        <activity android:name=".activity.TweenAnimationActivity" />
+        <activity android:name=".activity.Main2Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- android:theme="@style/AppTheme"> -->
+        <activity android:name=".activity.TitleBarActivity" />
+        <activity android:name=".activity.AddStudentActivity" />
         <activity android:name=".activity.UpdataActivity" />
         <activity android:name=".activity.StudentListActivity" />
         <activity android:name=".activity.ImageFileActivity" />
         <activity android:name=".activity.File2Activity" />
         <activity android:name=".activity.FileActivity" />
         <activity android:name=".activity.StaredPreferencesActivity" />
-        <activity android:name=".activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

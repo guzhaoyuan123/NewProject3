@@ -25,14 +25,10 @@ public class StudentDaoImpl implements StudentDao {
         String sql = "select * from t_student_info";
         List<Student> students = null;
 
-        // 1. 获取SQLiteDatabase对象
         db = dbHelper.getReadableDatabase();
 
-        // 2. 执行SQL查询
-        // Cursor cursor = db.query(Student.TBL_NAME, null, null, null, null, null, null);
         Cursor cursor = db.rawQuery(sql, null);
 
-        // 3. 处理结果
         if (cursor != null && cursor.getCount() > 0) {
             students = new ArrayList<>();
             while (cursor.moveToNext()) {

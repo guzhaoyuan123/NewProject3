@@ -9,12 +9,13 @@ import com.example.newproject.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button mBtnStorage,mBtnFile,mBtnFile2,mBtnImageFile2,mBtnStudentlist;
+    private Button mBtnStorage,mBtnFile,mBtnFile2,mBtnImageFile2,mBtnStudentlist,mBtnBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mBtnBar = findViewById(R.id.bt_bar);
         mBtnStorage = findViewById(R.id.storage);
         mBtnFile = findViewById(R.id.file);
         mBtnFile2 = findViewById(R.id.file2);
@@ -51,6 +52,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.studentList:
                 Intent intent4 = new Intent(MainActivity.this, StudentListActivity.class);
                 startActivity(intent4);
+                break;
+            case R.id.bt_bar:
+//                Intent intent5 = new Intent(MainActivity.this, CostomToolbar.class);
+//                startActivity(intent5);
                 break;
         }
     }
